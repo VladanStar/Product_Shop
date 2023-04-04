@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/servis.service';
 import { CurrencyPipe } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-info',
@@ -19,6 +20,7 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   constructor(
     private productService: ProductService,
+    private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -35,5 +37,8 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
     if (this.subscription != null) {
       this.subscription.unsubscribe();
     }
+  }
+  addToCart() {
+    this.cartService.addToCart(this.product);
   }
 }

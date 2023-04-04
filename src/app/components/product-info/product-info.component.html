@@ -1,31 +1,29 @@
 <div class="container my-5">
   <div class="row">
     <div class="col-4">
-    <div class="card" *ngIf="product">
-
-        <a routerLink="/" class="btn btn-sm btn-secondary mb-3 back"  >Back</a>
-        <h3 class="card-header">{{product.name}}</h3>
+      <div class="card" *ngIf="product">
+        <a routerLink="/" class="btn btn-sm btn-secondary mb-3 back">Back</a>
+        <h3 class="card-header">{{ product.name }}</h3>
 
         <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">Ime: {{product.name}}</li>
-                <li class="list-group-item">ID: {{product.productId}}</li>
-                <li class="list-group-item">Descr: {{product.description}}</li>
-                <li class="list-group-item">Price: {{product.price  | currency:'USD':'symbol':'1.2-2' }}</li>
-
-            </ul>
+          <ul class="list-group">
+            <li class="list-group-item">Ime: {{ product.name }}</li>
+            <li class="list-group-item">ID: {{ product.productId }}</li>
+            <li class="list-group-item">Descr: {{ product.description }}</li>
+            <li class="list-group-item">
+              Price: {{ product.price | currency : "USD" : "symbol" : "1.2-2" }}
+            </li>
+          </ul>
         </div>
         <div class="card-footer">
-            <!-- <div class="btn-group">
-                <a routerLink="/product/edit/{{product.id}}" class="btn btn-info">Edit</a>
-                <button class="btn btn-danger" (click)="deleteProduct()">Delete</button>
-
-            </div> -->
+          <div class="btn-group">
+            <!-- <a routerLink="/product/edit/{{product.id}}" class="btn btn-info">Edit</a> -->
+            <button class="btn btn-info" (click)="addToCart()">
+              Add To Cart
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-
-    </div>
-
-    </div>
-
   </div>
+</div>
