@@ -2,30 +2,40 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { CartService } from 'src/app/services/cart.service';
 import { CurrencyPipe } from '@angular/common';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { nameValidator } from './name.validator';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
-export class CartComponent  implements OnInit{
-public items:Product[]=[];
+export class CartComponent implements OnInit {
+  public items: Product[] = [];
   public checkoutForm!: FormGroup;
 
-constructor( private cartService:CartService,
-  private formBuilder:FormBuilder){
-this.items=this.cartService.getItems();
-this.checkoutForm=this.formBuilder.group({
-name:[],
-adderss:[],
-email:[]
-})
-}
+  constructor(
+    private cartService: CartService,
+    private formBuilder: FormBuilder
+  ) {
+    this.items = this.cartService.getItems();
+    this.checkoutForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
 
-ngOnInit(): void {
+  ngOnInit(): void {}
 
-}
-
-
+  public get name() {
+    return this.checkoutForm.get('name');
+  }
+  public get address() {
+    return this.checkoutForm.get('address');
+  }
+  public get email() {
+    return this.checkoutForm.get('email');
+  }
+  submitForm(w: any) {}
 }
