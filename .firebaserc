@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "product-shop-286d2": {
+      "hosting": {
+        "product-shop": [
+          "product-shop-286d2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "product-shop-286d2"
+  }
+}
