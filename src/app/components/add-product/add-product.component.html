@@ -1,1 +1,51 @@
-<p>add-product works!</p>
+<div class="container">
+  <div class="row">
+    <form #f="ngForm" (ngSubmit)="addTodo(f)">
+      <!-- <div [hidden]="!naziv.errors?.['required']" class="invalid-feedback">Naziv je obavezan</div> -->
+      <div class="mb-3">
+        <label for="name">*Namec</label>
+        <input
+          ngModel
+          type="text"
+          name="name"
+          #name="ngModel"
+          id="name"
+          class="form-control"
+          required
+          placeholder="name"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Address</label>
+        <input
+          title="$"
+          ngModel
+          type="string"
+          id="address"
+          name="address"
+          #address="ngModel"
+          class="form-control"
+          placeholder="Address"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email">*Email</label>
+        <input
+          ngModel
+          type="email"
+          id="email"
+          name="email"
+          #email="ngModel"
+          class="form-control"
+          required
+        />
+      </div>
+
+
+      <button class="btn btn-success" type="submit">Add Book</button>
+    </form>
+  </div>
+</div>
