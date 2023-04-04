@@ -1,3 +1,15 @@
-<h1>Checkout</h1>
-<hr>
-
+<h1 class="text-center">Checkout</h1>
+<hr />
+<div *ngIf="items.length > 0; else noItems">
+  <p class="text-center">Your current Cart includes these items:</p>
+  <div *ngFor="let item of items" class="alert alert-info card">
+    <h4>{{ item.name }}</h4>
+    <h6>{{ item.price | currency : "USD" : "symbol" : "1.2-2" }}</h6>
+    <hr />
+  </div>
+</div>
+<div>
+  <ng-template #noItems>
+    <p class="text-center">This Cart is Empty</p>
+  </ng-template>
+</div>
