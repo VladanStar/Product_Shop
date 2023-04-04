@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SumPipe } from './pipes/sum.pipe';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CartComponent,
     HeaderComponent,
     SumPipe,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
