@@ -21,14 +21,15 @@ export class ProductInfoComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-ngOnInit(): void {
+  ngOnInit(): void {
+    this.id= this.route.snapshot.paramMap.get("id")
+    if(this.id){
 
-  this.id = this.route.snapshot.paramMap.get('productId');
-  if (this.id) {
-    this.productService.get(this.id).subscribe((p) => {
-      this.product = p;
-      console.log(this.product);
-    });
-  }
+
+    this.productService.get(this.id).subscribe(p => {
+     this.product = p;
+     console.log(this.product);
+   });
+ }
 }
 }
