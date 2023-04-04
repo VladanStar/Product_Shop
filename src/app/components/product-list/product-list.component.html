@@ -13,7 +13,7 @@
        <li class="list-group-item bg-info">Descr: {{ product.price  | currency:'USD':'symbol':'1.2-2'}}</li>
 
         </ul>
-        <div class="card-footer bg-warning"><a  class="btn btn-primary" routerLink="/products/{{product.productId  }}">Details</a></div>
+        <div class="card-footer bg-warning"><a  class="btn btn-primary" [routerLink]="['/products',product.productId]">Details</a></div>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ import { Product } from 'src/app/model/product';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/servis.service';
-import {CurrencyPipe}from"@angular/common"
+import {CurrencyPipe}from"@angular/common";
 
 
 @Component({
