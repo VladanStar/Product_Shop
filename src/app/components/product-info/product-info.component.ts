@@ -1,35 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/servis.service';
-import {CurrencyPipe}from"@angular/common"
-
+import { CurrencyPipe } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-info',
   templateUrl: './product-info.component.html',
-  styleUrls: ['./product-info.component.css']
+  styleUrls: ['./product-info.component.css'],
 })
-export class ProductInfoComponent implements OnInit {
+export class ProductInfoComponent implements OnInit, OnDestroy {
   id: any;
 
   product: Product = {};
 
+  private subscription: Subscription = new Subscription();
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
   ngOnInit(): void {
-    this.id= this.route.snapshot.paramMap.get("id")
-    if(this.id){
-
-
-    this.productService.get(this.id).subscribe(p => {
-     this.product = p;
-     console.log(this.product);
-   });
- }
-}
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.subscription = this.productService.get(this.id).subscribe((p) => {
+        this.product = p;
+        console.log(this.product);
+      });
+    }
+  }
+  ngOnDestroy(): void {
+    if (this.subscription != null) {
+      this.subscription.unsubscribe();
+    }
+  }
 }
