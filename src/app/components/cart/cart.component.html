@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row" card>
+  <div class="row card col-8">
     <h1 class="text-center">Checkout</h1>
     <hr />
     <div *ngIf="items.length > 0; else noItems">
@@ -11,60 +11,63 @@
       <h4 class="text-right">Total Price{{ items | sum | currency }}</h4>
 
       <form
-        [formGroup]="checkoutForm"
-        (ngSubmit)="submitForm(checkoutForm.value)"
-      >
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            class="form-control"
-            placeholder="name"
-            formControlName="name"
-          />
-        </div>
-        <p class="error-message">Name is Required</p>
+      [formGroup]="checkoutForm"
+      (ngSubmit)="submitForm(checkoutForm.value)"
+    >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control"
+          placeholder="name"
+          formControlName="name"
+        />
+      </div>
+      <p class="error-message" *ngIf="name!.errors?.['required']">Name is Required</p>
 
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            class="form-control"
-            placeholder="address"
-            formControlName="address"
-          />
-        </div>
-        <p class="error-message">Address is Required</p>
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            class="form-control"
-            placeholder="email"
-            formControlName="email"
-          />
-        </div>
-        <p class="error-message">Email is Required</p>
-        <button
-          type="submit"
-          title="#"
-          class="btn btn-primary btn-block"
-          [disabled]="!checkoutForm.valid"
-        >
-          Purcashe
-        </button>
-      </form>
-    </div>
-    <div>
-      <ng-template #noItems>
-        <p class="text-center">This Cart is Empty</p>
-      </ng-template>
-    </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          class="form-control"
+          placeholder="address"
+          formControlName="address"
+        />
+      </div>
+      <p class="error-message"  *ngIf="address!.errors?.['required']">Address is Required</p>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-control"
+          placeholder="email"
+          formControlName="email"
+        />
+      </div>
+      <p class="error-message"  *ngIf="email!.errors?.['required']">Email is Required</p>
+      <button
+        type="submit"
+        title="#"
+        class="btn btn-primary btn-block"
+        [disabled]="!checkoutForm.valid"
+      >
+        Purcashe
+      </button>
+    </form>
   </div>
+  <div>
+    <ng-template #noItems>
+      <p class="text-center">This Cart is Empty</p>
+    </ng-template>
+  </div>
+  </div>
+<div class="col-4">
+
+</div>
 </div>

@@ -37,5 +37,13 @@ export class CartComponent implements OnInit {
   public get email() {
     return this.checkoutForm.get('email');
   }
-  submitForm(w: any) {}
+  submitForm(data: any) {
+    console.log(data);
+    if (!this.checkoutForm.valid) {
+      window.alert('Not valid');
+      return;
+    }
+    this.items = this.cartService.clearCart();
+    this.checkoutForm.reset();
+  }
 }
