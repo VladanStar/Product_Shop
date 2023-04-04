@@ -1,0 +1,6 @@
+
+.card {
+  width: 300px; /* prilagodite veličinu kartice prema potrebi */
+  margin-right: 20px; /* ili drugačije prilagodite razmak između kartica */
+  width: 18rem;
+}

@@ -1,12 +1,19 @@
 <div class="container">
-<div class="row">
-</div>
-<h1>Products</h1>
-<hr>
-<div *ngFor="let product of products">
-    <h4>{{product.name}}</h4>
-    <p>Price: {{product.price}}</p>
-    <p> Desc: {{product.description}}</p>
-</div>
-
+  <h1 class="text-center">Products</h1>
+  <hr />
+  <div class="row" class="d-flex justify-content-center flex-wrap my-5">
+    <div *ngFor="let product of products">
+      <div class="card my-3" >
+        <div class="card-header">
+          {{ product.name }}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Name: {{ product.name }}</li>
+          <li class="list-group-item">Product ID: {{ product.productId }}</li>
+          <li class="list-group-item">Descr: {{ product.description }}</li>
+        </ul>
+        <div class="card-footer">Price:{{ product.price }}</div>
+      </div>
+    </div>
+  </div>
 </div>

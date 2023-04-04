@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import {AngularFireModule} from "@angular/fire/compat"
 import { environment } from '../environments/environment';
+import { ProductInfoComponent } from './components/product-info/product-info.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductInfoComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
