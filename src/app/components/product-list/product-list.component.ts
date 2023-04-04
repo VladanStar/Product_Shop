@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from 'src/app/services/servis.service';
+
 
 @Component({
   selector: 'app-product-list',
@@ -8,10 +12,22 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductListComponent implements OnInit {
 
-  products:[]=[];
+  id: any;
+  showDeletedMessage: boolean = true;
+  searchText:any;
+  totalLength: any;
+  page: number = 1;
+  p: any;
+  products:Product[]=[];
+  product: Product = {};
+  constructor(private productService: ProductService,
+    private route: ActivatedRoute,
+    private router: Router){}
 
-  constructor(){}
-  ngOnInit(): void {
-    
-  }
+
+    ngOnInit(): void {
+      this.productService.getAll().subscribe((products) => {
+        this.products = products;
+      });
+    }
 }
