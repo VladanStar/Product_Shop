@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { ProductInfoComponent } from './components/product-info/product-info.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SumPipe } from './pipes/sum.pipe';
 
 
 
@@ -19,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
     ProductInfoComponent,
     CartComponent,
     HeaderComponent,
+    SumPipe,
 
   ],
   imports: [
