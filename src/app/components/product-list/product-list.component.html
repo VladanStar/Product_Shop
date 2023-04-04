@@ -4,15 +4,15 @@
   <div class="row" class="d-flex justify-content-center flex-wrap my-5">
     <div *ngFor="let product of products">
       <div class="card my-3" >
-        <div class="card-header">
+        <div class="card-header bg-danger">
           {{ product.name }}
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Name: {{ product.name }}</li>
-          <li class="list-group-item">Product ID: {{ product.productId }}</li>
-          <li class="list-group-item">Descr: {{ product.description }}</li>
+          <li class="list-group-item bg-info">Name: {{ product.name }}</li>
+          <li class="list-group-item bg-info">Product ID: {{ product.productId }}</li>
+          <!-- <li class="list-group-item">Descr: {{ product.description }}</li> -->
         </ul>
-        <div class="card-footer">Price:{{ product.price }}</div>
+        <div class="card-footer bg-warning">Price:{{ product.price }}</div>
       </div>
     </div>
   </div>

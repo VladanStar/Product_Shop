@@ -8,6 +8,8 @@ import {AngularFireModule} from "@angular/fire/compat"
 import { environment } from '../environments/environment';
 import { ProductInfoComponent } from './components/product-info/product-info.component';
 import { CartComponent } from './components/cart/cart.component';
+import { HeaderComponent } from './components/header/header.component';
+
 
 
 @NgModule({
@@ -15,13 +17,15 @@ import { CartComponent } from './components/cart/cart.component';
     AppComponent,
     ProductListComponent,
     ProductInfoComponent,
-    CartComponent
+    CartComponent,
+    HeaderComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase)
-   
+
   ],
   providers: [],
   bootstrap: [AppComponent]
