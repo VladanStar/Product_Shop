@@ -24,4 +24,14 @@ export class CartService {
     this.items.splice(index, 1);
   }
 
+  public getItemQuantity(product: Product): number {
+    let count = 0;
+    this.items.forEach(item => {
+      if (item.id === product.id) {
+        count++;
+      }
+    });
+    return count;
+  }
+
 }

@@ -15,10 +15,11 @@ export class CartComponent implements OnInit {
   public checkoutForm!: FormGroup;
 
   constructor(
-    private cartService: CartService,
+    public cartService: CartService,
     private formBuilder: FormBuilder
   ) {
     this.items = this.cartService.getItems();
+
     this.checkoutForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       address: ['', [Validators.required]],
@@ -43,7 +44,9 @@ export class CartComponent implements OnInit {
       window.alert('Not valid');
       return;
     }
+
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
   }
+
 }

@@ -14,10 +14,11 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductInfoComponent implements OnInit, OnDestroy {
   id: any;
-
+  cartItems: { product: Product, quantity: number }[] = [];
   product: Product = {};
 
   private subscription: Subscription = new Subscription();
+  items: any;
   constructor(
     private productService: ProductService,
     private cartService: CartService,
@@ -32,6 +33,7 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
         console.log(this.product);
       });
     }
+    this.calculateCartItems();
   }
   ngOnDestroy(): void {
     if (this.subscription != null) {
@@ -41,6 +43,22 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   addToCart() {
     this.cartService.addToCart(this.product);
     console.log(this.product);
+    this.calculateCartItems();
+  }
+
+  private calculateCartItems(): void {
+    const items = this.cartService.getItems();
+    const map = new Map<Product, number>();
+
+    for (const item of items) {
+      if (map.has(item)) {
+        map.set(item, map.get(item)! + 1);
+      } else {
+        map.set(item, 1);
+      }
+    }
+
+    this.cartItems = Array.from(map).map(([product, quantity]) => ({ product, quantity }));
   }
   deleteCart() {
     let id = this.id as string;
@@ -51,5 +69,14 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
         this.router.navigate(['/']);
       }
     }
+  }
+  getItemQuantity(product: Product): number {
+    let count = 0;
+    this.items.forEach((item: { id: string | undefined; }) => {
+      if (item.id === product.id) {
+        count++;
+      }
+    });
+    return count;
   }
 }

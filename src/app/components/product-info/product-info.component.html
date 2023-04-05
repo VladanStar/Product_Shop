@@ -1,5 +1,7 @@
 <div class="container my-5">
   <div class="row">
+
+
     <div class="col-4">
       <div class="card" *ngIf="product">
         <a routerLink="/" class="btn btn-sm btn-secondary mb-3 back">Back</a>
@@ -18,7 +20,7 @@
         <div class="card-footer">
           <div class="btn-group">
 
-            <button class="btn btn-info" (click)="addToCart()">Add To Cart</button>
+        <button (click)="addToCart()">Dodaj proizvod</button>
             <button class="btn btn-danger" (click)="deleteCart()">Delete From Cart</button>
 
           </div>
