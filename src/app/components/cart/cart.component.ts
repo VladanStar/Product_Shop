@@ -16,9 +16,9 @@ export class CartComponent implements OnInit {
   cartItems: { product: Product; quantity: number }[] = [];
 
   public checkoutForm: FormGroup;
-  name: any;
-  address: any;
-  email: any;
+  // name: any;
+  // address: any;
+  // email: any;
 
   constructor(
     private cartService: CartService,
@@ -85,5 +85,15 @@ export class CartComponent implements OnInit {
     }
     this.totalPrice = total;
     this.calculateCartItems();
+  }
+
+  public get name(){
+    return this.checkoutForm.get('name')
+  }
+  public get address(){
+    return this.checkoutForm.get('address')
+  }
+  public get email(){
+    return this.checkoutForm.get('email')
   }
 }

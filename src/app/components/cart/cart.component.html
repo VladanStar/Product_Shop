@@ -3,22 +3,22 @@
     <h1 class="text-center">Checkout</h1>
     <hr />
 
-    <ul>
-      <li *ngFor="let item of cartItems">
-        {{ item.product.name }}
+    <div>
+      <ul>
+        <li *ngFor="let item of cartItems">
+          {{ item.product.name }}
 
-        <a (click)="onDelete(item.product)"
-          ><i class="bi bi-dash-square"></i
-        ></a>
-        <span> {{ item.quantity }}</span>
-        <a (click)="onAddToCart(item.product)"
-          ><i class="bi bi-file-plus"></i
-        ></a>
-
-        <!-- <button (click)="onAddToCart(item.product)">+</button> -->
-      </li>
-    </ul>
-    <p>Total price: {{ totalPrice }}</p>
+          <a (click)="onDelete(item.product)"
+            ><i class="bi bi-file-minus"></i
+          ></a>
+          <span> {{ item.quantity }}</span>
+          <a (click)="onAddToCart(item.product)"
+            ><i class="bi bi-file-plus"></i
+          ></a>
+        </li>
+      </ul>
+      <p>Total price: {{ totalPrice }}</p>
+    </div>
     <div *ngIf="cartItems.length > 0; else noItems">
       <p class="text-center">Your current Cart includes these items:</p>
     </div>
@@ -37,7 +37,9 @@
           formControlName="name"
         />
       </div>
-      <!-- <p class="error-message" *ngIf="name!.errors?.['required']">Name is Required</p> -->
+      <p class="error-message" *ngIf="name!.errors?.['required']">
+        Name is Required
+      </p>
 
       <div class="form-group">
         <label for="address">Address</label>
@@ -50,7 +52,10 @@
           formControlName="address"
         />
       </div>
-      <!-- <p class="error-message"  *ngIf="address!.errors?.['required']">Address is Required</p> -->
+      <p class="error-message" *ngIf="address!.errors?.['required']">
+        Address is Required
+      </p>
+
       <div class="form-group">
         <label for="email">E-mail</label>
         <input
@@ -62,7 +67,10 @@
           formControlName="email"
         />
       </div>
-      <!-- <p class="error-message"  *ngIf="email!.errors?.['required']">Email is Required</p> -->
+      <p class="error-message" *ngIf="email!.errors?.['required']">
+        Email is Required
+      </p>
+
       <button
         type="submit"
         title="#"
