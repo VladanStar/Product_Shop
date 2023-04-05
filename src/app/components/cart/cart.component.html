@@ -4,9 +4,9 @@
     <hr />
 
     <div>
-      <ul>
-        <li *ngFor="let item of cartItems">
-          {{ item.product.name }}
+      <div>
+        <div *ngFor="let item of cartItems">
+        <span>  {{ item.product.name }}</span>
 
           <a (click)="onDelete(item.product)"
             ><i class="bi bi-file-minus"></i
@@ -15,8 +15,8 @@
           <a (click)="onAddToCart(item.product)"
             ><i class="bi bi-file-plus"></i
           ></a>
-        </li>
-      </ul>
+        </div>
+      </div>
       <p>Total price: {{ totalPrice }}</p>
     </div>
     <div *ngIf="cartItems.length > 0; else noItems">
