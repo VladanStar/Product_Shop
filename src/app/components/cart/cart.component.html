@@ -73,8 +73,10 @@
 </div> -->
 <ul>
   <li *ngFor="let item of cartItems">
-    {{ item.product.name }} - {{ item.quantity }}
-    <button (click)="onDelete(item.product)">Dodaj u korpu</button>
-    <button (click)="onAddToCart(item.product)">Dodaj u korpu</button>
+    {{ item.product.name }}
+    <!-- - {{ item.quantity }} -->
+    <button (click)="onDelete(item.product)">-</button>
+<span>  {{ item.quantity}}</span>
+    <button (click)="onAddToCart(item.product)">+</button>
   </li>
 </ul>
