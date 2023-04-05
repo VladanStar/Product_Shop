@@ -44,9 +44,10 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   }
   deleteCart() {
     let id = this.id as string;
-    if (confirm('Da li ste sigurni?')) {
+    if (confirm('Are you sure?')) {
       if (id) {
-        this.productService.delete(this.id);
+        this.cartService.deleteItem(this.id);
+        // this.router.navigate(['/checkout']);
         this.router.navigate(['/']);
       }
     }

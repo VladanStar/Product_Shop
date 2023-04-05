@@ -20,4 +20,8 @@ export class CartService {
     this.items = [];
     return this.items;
   }
+  public deleteItem(index: number): void {
+    this.items.splice(index, 1);
+  }
+
 }
