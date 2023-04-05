@@ -5,3 +5,6 @@ margin: auto;
 .error-message{
 color: firebrick;
 }
+ul {
+    list-style: none;
+}
