@@ -40,6 +40,15 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   }
   addToCart() {
     this.cartService.addToCart(this.product);
-console.log(this.product)
+    console.log(this.product);
+  }
+  deleteCart() {
+    let id = this.id as string;
+    if (confirm('Da li ste sigurni?')) {
+      if (id) {
+        this.productService.delete(this.id);
+        this.router.navigate(['/']);
+      }
+    }
   }
 }
