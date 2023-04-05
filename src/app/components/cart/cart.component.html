@@ -2,21 +2,27 @@
   <div class="row card col-8">
     <h1 class="text-center">Checkout</h1>
     <hr />
-    <!-- <div *ngIf="cartItems.length > 0; else noItems">
-       <p class="text-center">Your current Cart includes these items:</p>
-       </div> -->
-       <ul>
-        <li *ngFor="let item of cartItems">
-          {{ item.product.name }}
-          <!-- - {{ item.quantity }} -->
-          <button (click)="onDelete(item.product)">-</button>
-      <span>  {{ item.quantity}}</span>
-          <button (click)="onAddToCart(item.product)">+</button>
-        </li>
-      </ul>
-      <p>Total price: {{ totalPrice }}</p>
 
-      <form
+    <ul>
+      <li *ngFor="let item of cartItems">
+        {{ item.product.name }}
+
+        <a (click)="onDelete(item.product)"
+          ><i class="bi bi-dash-square"></i
+        ></a>
+        <span> {{ item.quantity }}</span>
+        <a (click)="onAddToCart(item.product)"
+          ><i class="bi bi-file-plus"></i
+        ></a>
+
+        <!-- <button (click)="onAddToCart(item.product)">+</button> -->
+      </li>
+    </ul>
+    <p>Total price: {{ totalPrice }}</p>
+    <div *ngIf="cartItems.length > 0; else noItems">
+      <p class="text-center">Your current Cart includes these items:</p>
+    </div>
+    <form
       [formGroup]="checkoutForm"
       (ngSubmit)="submitForm(checkoutForm.value)"
     >
@@ -72,10 +78,5 @@
       <p class="text-center">This Cart is Empty</p>
     </ng-template>
   </div>
-  </div>
-<div class="col-4">
-
 </div>
-
-
-
+<div class="col-4"></div>
