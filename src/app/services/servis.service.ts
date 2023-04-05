@@ -36,8 +36,8 @@ export class ProductService {
   update(productId: string, Product: Product): void {
     this.db.object<Product>('/products/' + productId).update(Product);
   }
-  add(Product: Product) {
-    this.db.list('/products').push(Product);
+  add(product: Product) {
+    this.db.list('/products').push(product);
   }
   delete(productId: any) {
     this.db.object<Product>('/products/' + productId).remove();
