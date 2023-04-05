@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/model/product';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -8,9 +9,28 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  [x: string]: any;
+  submitForm(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
   cartItems: { product: Product; quantity: number }[] = [];
 
-  constructor(private cartService: CartService) {}
+  public checkoutForm: FormGroup;
+  name: any;
+  address: any;
+  email: any;
+
+  constructor(
+    private cartService: CartService,
+    private formBuilder: FormBuilder
+  ) {
+    this.checkoutForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+    });
+  }
+
   totalPrice: any = 0;
   ngOnInit(): void {
     this.calculateCartItems();
