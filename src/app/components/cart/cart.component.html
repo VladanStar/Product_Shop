@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row card col-8">
+  <div class="row card col-8" *ngIf="cartItems.length>0 else  noItems ">
     <h1 class="text-center">Checkout</h1>
     <hr />
 
