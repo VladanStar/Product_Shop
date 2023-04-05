@@ -5,8 +5,8 @@ import { Product } from '../model/product';
   providedIn: 'root',
 })
 export class CartService {
-  items: Product[] = [];
 
+  items: Product[] = [];
   constructor() {}
 
   public addToCart(product: Product) {
