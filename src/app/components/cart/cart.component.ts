@@ -1,52 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/model/product';
 import { CartService } from 'src/app/services/cart.service';
-import { CurrencyPipe } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { nameValidator } from './name.validator';
+import { Product } from 'src/app/model/product';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  public items: Product[] = [];
-  public checkoutForm!: FormGroup;
 
-  constructor(
-    public cartService: CartService,
-    private formBuilder: FormBuilder
-  ) {
-    this.items = this.cartService.getItems();
+  cartItems: { product: Product, quantity: number }[] = [];
 
-    this.checkoutForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-    });
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
+    this.calculateCartItems();
   }
 
-  ngOnInit(): void {}
+  private calculateCartItems(): void {
+    const items = this.cartService.getItems();
+    const map = new Map<Product, number>();
 
-  public get name() {
-    return this.checkoutForm.get('name');
-  }
-  public get address() {
-    return this.checkoutForm.get('address');
-  }
-  public get email() {
-    return this.checkoutForm.get('email');
-  }
-  submitForm(data: any) {
-    console.log(data);
-    if (!this.checkoutForm.valid) {
-      window.alert('Not valid');
-      return;
+    for (const item of items) {
+      if (map.has(item)) {
+        map.set(item, map.get(item)! + 1);
+      } else {
+        map.set(item, 1);
+      }
     }
 
-    this.items = this.cartService.clearCart();
-    this.checkoutForm.reset();
+    this.cartItems = Array.from(map).map(([product, quantity]) => ({ product, quantity }));
+  }
+
+  onAddToCart(product: Product): void {
+    this.cartService.addToCart(product);
+    this.calculateCartItems();
+  }
+onDelete(product:Product):void{
+this.cartService.deleteProduct(product)
+this.calculateCartItems();
+}
+  onDeleteItem(index: number): void {
+    this.cartService.deleteItem(index);
+    this.calculateCartItems();
+  }
+
+  onClearCart(): void {
+    this.cartService.clearCart();
+    this.calculateCartItems();
   }
 
 }

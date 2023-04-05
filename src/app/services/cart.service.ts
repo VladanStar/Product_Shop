@@ -23,6 +23,12 @@ export class CartService {
   public deleteItem(index: number): void {
     this.items.splice(index, 1);
   }
+  public deleteProduct(product: Product): void {
+    const index = this.items.findIndex(item => item.id === product.id);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    }
+  }
 
   public getItemQuantity(product: Product): number {
     let count = 0;
