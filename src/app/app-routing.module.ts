@@ -4,12 +4,14 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { CartComponent } from './components/cart/cart.component';
 import { ProductInfoComponent } from './components/product-info/product-info.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
 {path:"", component:ProductListComponent},
 {path:'checkout', component:CartComponent},
 {path:"product/add",component:AddProductComponent},
 {path:"product/:id", component:ProductInfoComponent},
+{ path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

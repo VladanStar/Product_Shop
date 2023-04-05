@@ -13,6 +13,7 @@ import { SumPipe } from './pipes/sum.pipe';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     HeaderComponent,
     SumPipe,
     AddProductComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
