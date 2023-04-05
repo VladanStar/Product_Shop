@@ -14,7 +14,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductInfoComponent implements OnInit, OnDestroy {
   id: any;
-kolicina:any=0;
+
   product: Product = {};
 
   private subscription: Subscription = new Subscription();
@@ -41,8 +41,6 @@ kolicina:any=0;
   addToCart() {
     this.cartService.addToCart(this.product);
     console.log(this.product);
-this.kolicina(this.product.productId, this.product.quantity)
-
   }
   deleteCart() {
     let id = this.id as string;
