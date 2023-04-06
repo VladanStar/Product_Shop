@@ -5,9 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/servis.service';
 import { CurrencyPipe } from '@angular/common';
 import * as Papa from 'papaparse';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
-
 
 @Component({
   selector: 'app-product-list',
