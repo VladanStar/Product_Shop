@@ -44,4 +44,15 @@ export class ProductListComponent implements OnInit {
     // flip sort direction
     this.sortDirection = -this.sortDirection;
   }
+  sortPrice(): void {
+    this.products.sort((a: Product, b: Product): number => {
+      if (a.name && b.name) {
+        return this.sortDirection * a.name.localeCompare(b.name);
+      } else {
+        return 0;
+      }
+    });
+    // flip sort direction
+    this.sortDirection = -this.sortDirection;
+  }
 }
