@@ -60,6 +60,7 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(product);
     this.calculateCartItems();
     this.calculateTotalPrice();
+
   }
   onDelete(product: Product): void {
     this.cartService.deleteProduct(product);

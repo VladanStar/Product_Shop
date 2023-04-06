@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,9 +16,9 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   id: any;
   cartItems: { product: Product; quantity: number }[] = [];
   product: Product = {};
-
   private subscription: Subscription = new Subscription();
   items: any;
+  totalQuantity: number =0;
   constructor(
     private productService: ProductService,
     private cartService: CartService,
