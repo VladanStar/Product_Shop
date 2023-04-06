@@ -17,10 +17,11 @@ export class ProductListComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   p: any;
+  sortDirectionPrice: number = 1; // smjer sortiranja, 1 za uzlazno, -1 za silazno
 
   products: Product[] = [];
   product: Product = {};
-
+filteredName:Product[]=[]
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -45,7 +46,7 @@ export class ProductListComponent implements OnInit {
     // flip sort direction
     this.sortDirection = -this.sortDirection;
   }
-  sortDirectionPrice: number = 1; // smjer sortiranja, 1 za uzlazno, -1 za silazno
+
 
   sortPrice(): void {
     this.products.sort((a: Product, b: Product): number => {
@@ -58,6 +59,12 @@ export class ProductListComponent implements OnInit {
     // flip sort direction
     this.sortDirectionPrice = -this.sortDirectionPrice;
   }
+  // filterIphone (){
+   
+  //     this.filteredName = this.products.includes("Iphone")
+    
+
+  // }
   exportToCsv() {
     const csv = Papa.unparse(this.products);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });

@@ -1,3 +1,6 @@
 ul{
 list-style: none;
 }
+.navbar {
+    background: cadetblue !important;
+}
