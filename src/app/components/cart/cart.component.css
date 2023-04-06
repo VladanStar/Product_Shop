@@ -8,11 +8,14 @@
 ul {
   list-style: none;
 }
+
 .price {
   color: white !important;
   font-weight: bold;
   border-radius: 8px;
-  text-align: right;
+  text-align: center;
+width: 40%;
+right: 10px;
 }
 .toscv {
   width: 30%;
