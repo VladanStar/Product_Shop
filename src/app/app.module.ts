@@ -16,6 +16,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SumPipe,
     AddProductComponent,
     NotFoundComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
