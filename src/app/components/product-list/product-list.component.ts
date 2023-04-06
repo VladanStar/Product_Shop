@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/servis.service';
 import { CurrencyPipe } from '@angular/common';
 import * as Papa from 'papaparse';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
+
   id: any;
   showDeletedMessage: boolean = true;
   searchText: any;
@@ -59,11 +64,7 @@ export class ProductListComponent implements OnInit {
     // flip sort direction
     this.sortDirectionPrice = -this.sortDirectionPrice;
   }
-  // filterIphone (){
 
-  //     this.filteredName = this.products.includes("Iphone")
-
-  // }
   exportToCsv() {
     const csv = Papa.unparse(this.products);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -76,4 +77,9 @@ export class ProductListComponent implements OnInit {
     link.click();
     document.body.removeChild(link);
   }
+
+
+
+
+
 }
