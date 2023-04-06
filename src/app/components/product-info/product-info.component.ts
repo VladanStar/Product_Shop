@@ -66,6 +66,7 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
 deleteCart() {
   this.cartService.deleteItem(this.id);
   this.calculateCartItems();
+
 }
   getItemQuantity(product: Product): number {
     let count = 0;
