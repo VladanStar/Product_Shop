@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row card col-8" *ngIf="cartItems.length>0 else  noItems ">
+  <div class="row card col-8" *ngIf="cartItems.length > 0; else noItems">
     <h1 class="text-center">Checkout</h1>
     <hr />
 
-    <div>
+    <!-- <div>
       <div>
         <div *ngFor="let item of cartItems">
         <span>  {{ item.product.name }}</span>
@@ -18,10 +18,43 @@
         </div>
       </div>
       <p>Total price: {{ totalPrice }}</p>
-    </div>
+    </div> -->
     <div *ngIf="cartItems.length > 0; else noItems">
       <p class="text-center">Your current Cart includes these items:</p>
     </div>
+    <table class="my-5 table table-hover table-striped">
+      <thead class="table-info">
+        <tr>
+          <th>Name</th>
+          <th>Cena po komadu</th>
+          <th>Izbaci iz korpe</th>
+          <th>kolicina</th>
+          <th>Ubaci u korpu</th>
+          <th>Cena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems; let i = index">
+          <td>{{ item.product.name }}</td>
+          <td>{{ item.product.price  | currency : "USD" : "symbol" : "1.2-2" }}</td>
+          <td>
+            <a (click)="onDelete(item.product)"
+              ><i class="bi bi-file-minus"></i
+            ></a>
+          </td>
+          <td>{{ item.quantity }}</td>
+          <td>
+            <a (click)="onAddToCart(item.product)"
+              ><i class="bi bi-file-plus"></i
+            ></a>
+          </td>
+<td>{{totalP }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Total price: {{ totalPrice  | currency : "USD" : "symbol" : "1.2-2"  }}</p>
+<p class="text-center">Your Data address</p>
     <form
       [formGroup]="checkoutForm"
       (ngSubmit)="submitForm(checkoutForm.value)"

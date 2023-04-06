@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
   }
 
   totalPrice: any = 0;
+  totalP: any = 0;
   ngOnInit(): void {
     this.calculateCartItems();
     this.calculateTotalPrice();
@@ -59,16 +60,19 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(product);
     this.calculateCartItems();
     this.calculateTotalPrice();
+    this.calculatePrice();
   }
   onDelete(product: Product): void {
     this.cartService.deleteProduct(product);
     this.calculateCartItems();
     this.calculateTotalPrice();
+    this.calculatePrice();
   }
   onDeleteItem(index: number): void {
     this.cartService.deleteItem(index);
     this.calculateCartItems();
     this.calculateTotalPrice();
+    this.calculatePrice();
   }
 
   onClearCart(): void {
@@ -86,14 +90,26 @@ export class CartComponent implements OnInit {
     this.totalPrice = total;
     this.calculateCartItems();
   }
+  calculatePrice(): void {
+    let total = 0;
+    for (const item of this.cartItems) {
+      if (item.product && item.product.price) {
+        // add null check here
+        total = item.product.price * item.quantity;
+      }
+    }
+    this.totalP = total;
+    this.calculateCartItems();
+  }
 
-  public get name(){
-    return this.checkoutForm.get('name')
+
+  public get name() {
+    return this.checkoutForm.get('name');
   }
-  public get address(){
-    return this.checkoutForm.get('address')
+  public get address() {
+    return this.checkoutForm.get('address');
   }
-  public get email(){
-    return this.checkoutForm.get('email')
+  public get email() {
+    return this.checkoutForm.get('email');
   }
 }
