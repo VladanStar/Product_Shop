@@ -35,7 +35,6 @@ export class CartService {
       this.cartItemCount.next(this.items.length); // emitujte novu vrednost
     }
   }
-
   public getItemQuantity(product: Product): number {
     let count = 0;
     this.items.forEach((item) => {
