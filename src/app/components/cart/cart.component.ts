@@ -36,12 +36,12 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.calculateCartItems();
     this.calculateTotalPrice();
+
   }
 
   private calculateCartItems(): void {
     const items = this.cartService.getItems();
     const map = new Map<Product, number>();
-
     for (const item of items) {
       if (map.has(item)) {
         map.set(item, map.get(item)! + 1);
@@ -60,26 +60,24 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(product);
     this.calculateCartItems();
     this.calculateTotalPrice();
+
   }
   onDelete(product: Product): void {
     this.cartService.deleteProduct(product);
     this.calculateCartItems();
-
-    //  this.calculatePrice();
     this.calculateTotalPrice();
   }
   onDeleteItem(index: number): void {
     this.cartService.deleteItem(index);
     this.calculateCartItems();
-
     this.calculateTotalPrice();
-    // this.calculatePrice();
   }
 
   onClearCart(): void {
     this.cartService.clearCart();
     this.calculateCartItems();
   }
+
   calculateTotalPrice(): void {
     let total = 0;
     for (const item of this.cartItems) {
@@ -95,9 +93,11 @@ export class CartComponent implements OnInit {
   public get name() {
     return this.checkoutForm.get('name');
   }
+
   public get address() {
     return this.checkoutForm.get('address');
   }
+
   public get email() {
     return this.checkoutForm.get('email');
   }
