@@ -14,7 +14,20 @@
           placeholder="name"
         />
       </div>
-
+      <div class="mb-3">
+        <label for="productId">Sifra phone</label>
+        <input
+          title="$"
+          ngModel
+          type="text"
+          id="productId"
+          name="id"
+          #productId="ngModel"
+          class="form-control"
+          placeholder="ID Phone"
+          required
+        />
+      </div>
       <div class="mb-3">
         <label for="price">Price</label>
         <input

@@ -36,7 +36,9 @@
       <tbody>
         <tr *ngFor="let item of cartItems; let i = index">
           <td>{{ item.product.name }}</td>
-          <td>{{ item.product.price  | currency : "USD" : "symbol" : "1.2-2" }}</td>
+          <td>
+            {{ item.product.price | currency : "USD" : "symbol" : "1.2-2" }}
+          </td>
           <td>
             <a (click)="onDelete(item.product)"
               ><i class="bi bi-file-minus"></i
@@ -48,13 +50,18 @@
               ><i class="bi bi-file-plus"></i
             ></a>
           </td>
-<td>{{totalP }}</td>
+          <td>{{ totalP }}</td>
         </tr>
       </tbody>
     </table>
 
-    <p>Total price: {{ totalPrice  | currency : "USD" : "symbol" : "1.2-2"  }}</p>
-<p class="text-center">Your Data address</p>
+    <div class="bg-success price">
+      <p class="my-2">
+        Total price: {{ totalPrice | currency : "USD" : "symbol" : "1.2-2" }}
+      </p>
+    </div>
+
+    <p class="text-center">Your Data address</p>
     <form
       [formGroup]="checkoutForm"
       (ngSubmit)="submitForm(checkoutForm.value)"
@@ -109,6 +116,7 @@
         title="#"
         class="btn btn-primary btn-block"
         [disabled]="!checkoutForm.valid"
+(click)="purcashe()"
       >
         Purcashe
       </button>

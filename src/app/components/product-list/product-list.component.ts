@@ -45,15 +45,17 @@ export class ProductListComponent implements OnInit {
     // flip sort direction
     this.sortDirection = -this.sortDirection;
   }
+  sortDirectionPrice: number = 1; // smjer sortiranja, 1 za uzlazno, -1 za silazno
+
   sortPrice(): void {
     this.products.sort((a: Product, b: Product): number => {
-      if (a.name && b.name) {
-        return this.sortDirection * a.name.localeCompare(b.name);
+      if (a.price && b.price) {
+        return this.sortDirectionPrice * (a.price - b.price);
       } else {
         return 0;
       }
     });
     // flip sort direction
-    this.sortDirection = -this.sortDirection;
+    this.sortDirectionPrice = -this.sortDirectionPrice;
   }
 }

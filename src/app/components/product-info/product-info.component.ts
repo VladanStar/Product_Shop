@@ -14,7 +14,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductInfoComponent implements OnInit, OnDestroy {
   id: any;
-  cartItems: { product: Product, quantity: number }[] = [];
+  cartItems: { product: Product; quantity: number }[] = [];
   product: Product = {};
 
   private subscription: Subscription = new Subscription();
@@ -58,7 +58,10 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
       }
     }
 
-    this.cartItems = Array.from(map).map(([product, quantity]) => ({ product, quantity }));
+    this.cartItems = Array.from(map).map(([product, quantity]) => ({
+      product,
+      quantity,
+    }));
   }
   deleteCart() {
     let id = this.id as string;
@@ -72,7 +75,7 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   }
   getItemQuantity(product: Product): number {
     let count = 0;
-    this.items.forEach((item: { id: string | undefined; }) => {
+    this.items.forEach((item: { id: string | undefined }) => {
       if (item.id === product.id) {
         count++;
       }

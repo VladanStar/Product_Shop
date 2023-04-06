@@ -90,6 +90,11 @@ export class CartComponent implements OnInit {
     this.calculateCartItems();
   }
 
+  purcashe(){
+this.checkoutForm.reset();
+window.alert("the purchase order has been sent")
+  }
+
   public get name() {
     return this.checkoutForm.get('name');
   }
