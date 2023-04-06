@@ -99,7 +99,8 @@ export class CartComponent implements OnInit {
   purcashe(){
 this.checkoutForm.reset();
 window.alert("the purchase order has been sent");
-this.clearTable()
+this.clearTable();
+this.totalPrice=0;
 
   }
 
