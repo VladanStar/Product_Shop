@@ -21,7 +21,8 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   product: Product = {};
-filteredName:Product[]=[]
+  filteredName: Product[] = [];
+  pdfUrl!: string;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
@@ -47,7 +48,6 @@ filteredName:Product[]=[]
     this.sortDirection = -this.sortDirection;
   }
 
-
   sortPrice(): void {
     this.products.sort((a: Product, b: Product): number => {
       if (a.price && b.price) {
@@ -60,9 +60,8 @@ filteredName:Product[]=[]
     this.sortDirectionPrice = -this.sortDirectionPrice;
   }
   // filterIphone (){
-   
+
   //     this.filteredName = this.products.includes("Iphone")
-    
 
   // }
   exportToCsv() {
