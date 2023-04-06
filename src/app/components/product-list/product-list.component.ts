@@ -17,6 +17,7 @@ export class ProductListComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   p: any;
+
   products: Product[] = [];
   product: Product = {};
 

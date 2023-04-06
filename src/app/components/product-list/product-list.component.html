@@ -1,13 +1,16 @@
 <div class="container">
   <h1 class="text-center">Products</h1>
 <div>
+  <input   [(ngModel)]="searchText" type="text" class=" search form-control border border-primary my-5" placeholder="serach">
+</div>
+<div>
   <button class="btn btn-warning mx-5" type="button" (click)="   sortName()">Sort Name<i class="bi bi-arrow-down"></i><i class="bi bi-arrow-up"></i></button>
   <button class="btn btn-warning x-5" type="button" (click)="   sortPrice()">Sort Price <i class="bi bi-arrow-down"></i><i class="bi bi-arrow-up"></i></button>
 </div>
 </div>
   <hr />
   <div class="row" class="d-flex justify-content-center flex-wrap my-5">
-    <div *ngFor="let product of products">
+    <div *ngFor="let product of products   | filter : searchText | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalLength };let i = index">
       <div class="card my-3" >
         <div class="card-header bg-danger">
           {{ product.name }}
@@ -22,4 +25,6 @@
       </div>
     </div>
   </div>
+  <pagination-controls class="text-center pag my-5" (pageChange)="page = $event"></pagination-controls>
+
 
