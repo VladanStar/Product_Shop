@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/model/product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as Papa from 'papaparse';
+
 
 @Component({
   selector: 'app-cart',
@@ -25,7 +25,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+
   ) {
     this.checkoutForm = this.formBuilder.group({
       name: ['', Validators.required],
