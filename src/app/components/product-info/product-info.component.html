@@ -24,9 +24,13 @@
           <div class="btn-group">
             <button class="btn btn-success" (click)="addToCart()">
               Add to Cart<i class="bi bi-cart-check"></i>
-            </button><p>Cart ({{ getCartItemCount() }} items)</p>
-            <button class="btn btn-danger" (click)="deleteCart()">
-              Delete From Cart<i class="bi bi-trash-fill"></i>
+            </button>
+           
+            <div class="box">
+               <p  class="item"> {{ getCartItemCount() }}</p>
+            </div>
+            <button class="btn btn-danger" (click)="onDeleteItem(id)">
+              Delete Item<i class="bi bi-trash-fill"></i>
             </button>
           </div>
         </div>
