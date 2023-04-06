@@ -22,7 +22,7 @@
     <div *ngIf="cartItems.length > 0; else noItems">
       <p class="text-center">Your current Cart includes these items:</p>
     </div>
-    <table class="my-5 table table-hover table-striped">
+    <table class="my-5 table table-hover table-striped" #myTable>
       <thead class="table-info">
         <tr>
           <th>Name</th>
@@ -53,13 +53,14 @@
           <td>{{ totalP }}</td>
         </tr>
       </tbody>
+      <div class="bg-success price">
+        <p class="my-2"  #myTable>
+          Total price: {{ totalPrice | currency : "USD" : "symbol" : "1.2-2" }}
+        </p>
+      </div>
     </table>
 
-    <div class="bg-success price">
-      <p class="my-2">
-        Total price: {{ totalPrice | currency : "USD" : "symbol" : "1.2-2" }}
-      </p>
-    </div>
+
 
     <p class="text-center">Your Data address</p>
     <form

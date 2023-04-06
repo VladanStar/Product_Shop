@@ -9,6 +9,7 @@ ul {
     list-style: none;
 }
 .price{
+width: 200px;
 color: white !important;
 font-weight: bold;
 border-radius: 8px;

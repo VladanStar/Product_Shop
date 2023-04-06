@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/model/product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+
+  @ViewChild('myTable', { static: false }) tableRef!: ElementRef;
   [x: string]: any;
   submitForm(arg0: any) {
     throw new Error('Method not implemented.');
@@ -89,10 +91,16 @@ export class CartComponent implements OnInit {
     this.totalPrice = total;
     this.calculateCartItems();
   }
+  clearTable() {
+    const tableElement = this.tableRef.nativeElement;
+    tableElement.innerHTML = '';
+  }
 
   purcashe(){
 this.checkoutForm.reset();
-window.alert("the purchase order has been sent")
+window.alert("the purchase order has been sent");
+this.clearTable()
+
   }
 
   public get name() {
