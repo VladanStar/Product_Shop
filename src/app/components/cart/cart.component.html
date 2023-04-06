@@ -53,15 +53,12 @@
           <td>{{ totalP }}</td>
         </tr>
       </tbody>
-
     </table>
     <div class="bg-success price">
-      <p class="my-2"  #myTable>
+      <p class="my-2" #myTable>
         Total price: {{ totalPrice | currency : "USD" : "symbol" : "1.2-2" }}
       </p>
     </div>
-
-
 
     <p class="text-center">Your Data address</p>
     <form
@@ -118,12 +115,11 @@
         title="#"
         class="btn btn-primary btn-block"
         [disabled]="!checkoutForm.valid"
-(click)="purcashe()"
+        (click)="purcashe()"
       >
         Purcashe
       </button>
     </form>
-
   </div>
   <div>
     <ng-template #noItems>

@@ -8,16 +8,16 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 const routes: Routes = [
-{path:"", component:ProductListComponent},
-{path:'checkout', component:CartComponent},
-{path:"product/add",component:AddProductComponent},
-{path:"product/:id", component:ProductInfoComponent},
-{ path: 'product/edit/:id', component: EditProductComponent },
-{ path: '**', component: NotFoundComponent },
+  { path: '', component: ProductListComponent },
+  { path: 'checkout', component: CartComponent },
+  { path: 'product/add', component: AddProductComponent },
+  { path: 'product/:id', component: ProductInfoComponent },
+  { path: 'product/edit/:id', component: EditProductComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

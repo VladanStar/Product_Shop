@@ -7,7 +7,6 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-
   constructor(private db: AngularFireDatabase) {}
 
   getAll(): Observable<Product[]> {

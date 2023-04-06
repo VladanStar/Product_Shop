@@ -1,14 +1,14 @@
 .delete-button {
   position: absolute;
-width: 10%;
+  width: 10%;
   top: 0;
   right: 0;
   /* apply any additional styles */
 }
 
-.card{
+.card {
   position: relative;
 }
-.back{
-width: 20%;
+.back {
+  width: 20%;
 }

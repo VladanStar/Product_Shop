@@ -3,14 +3,12 @@ import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/model/product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-
   @ViewChild('myTable', { static: false }) tableRef!: ElementRef;
   [x: string]: any;
   submitForm(arg0: any) {
@@ -25,8 +23,7 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private formBuilder: FormBuilder,
-
+    private formBuilder: FormBuilder
   ) {
     this.checkoutForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -40,7 +37,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.calculateCartItems();
     this.calculateTotalPrice();
-
   }
 
   private calculateCartItems(): void {
@@ -64,8 +60,6 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(product);
     this.calculateCartItems();
     this.calculateTotalPrice();
-
-
   }
   onDelete(product: Product): void {
     this.cartService.deleteProduct(product);
@@ -99,12 +93,11 @@ export class CartComponent implements OnInit {
     tableElement.innerHTML = '';
   }
 
-  purcashe(){
-this.checkoutForm.reset();
-window.alert("the purchase order has been sent");
-this.clearTable();
-this.totalPrice=0;
-
+  purcashe() {
+    this.checkoutForm.reset();
+    window.alert('the purchase order has been sent');
+    this.clearTable();
+    this.totalPrice = 0;
   }
 
   public get name() {

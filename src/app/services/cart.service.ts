@@ -5,7 +5,6 @@ import { Product } from '../model/product';
   providedIn: 'root',
 })
 export class CartService {
-
   items: Product[] = [];
   constructor() {}
 
@@ -24,7 +23,7 @@ export class CartService {
     this.items.splice(index, 1);
   }
   public deleteProduct(product: Product): void {
-    const index = this.items.findIndex(item => item.id === product.id);
+    const index = this.items.findIndex((item) => item.id === product.id);
     if (index !== -1) {
       this.items.splice(index, 1);
     }
@@ -32,12 +31,11 @@ export class CartService {
 
   public getItemQuantity(product: Product): number {
     let count = 0;
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       if (item.id === product.id) {
         count++;
       }
     });
     return count;
   }
-
 }

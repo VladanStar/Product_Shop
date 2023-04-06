@@ -1,27 +1,50 @@
 <div class="container">
-<div class="row">
-  <form #f="ngForm" (ngSubmit)="editPhone(f)">
-
-    <div class="mb-3">
-<label for="name">name</label>
-<input  title="#f" [(ngModel)]="product.name" type="text" id="name" name="name" class="form-control" >
-    </div>
-    <div class="mb-3">
+  <div class="row">
+    <form #f="ngForm" (ngSubmit)="editPhone(f)">
+      <div class="mb-3">
+        <label for="name">name</label>
+        <input
+          title="#f"
+          [(ngModel)]="product.name"
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
         <label for="productId">productId</label>
-        <input  [(ngModel)]="product.productId" type="text" name="productId" id="productId" class="form-control" >
-    </div>
-    <div class="mb-3">
+        <input
+          [(ngModel)]="product.productId"
+          type="text"
+          name="productId"
+          id="productId"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
         <label for="descr">descr</label>
-        <input  [(ngModel)]="product.descr" type="text" id="descr" name="descr" class="form-control">
-    </div>
+        <input
+          [(ngModel)]="product.descr"
+          type="text"
+          id="descr"
+          name="descr"
+          class="form-control"
+        />
+      </div>
 
-    <div class="mb-3">
+      <div class="mb-3">
         <label for="price">Broj Stranica</label>
-        <input [(ngModel)]="product.price" type="number" id="price"  name="price" class="form-control" >
-    </div>
+        <input
+          [(ngModel)]="product.price"
+          type="number"
+          id="price"
+          name="price"
+          class="form-control"
+        />
+      </div>
 
-
-   <button class="btn btn-success" type="submit">Edit product</button>
-</form>
-</div>
+      <button class="btn btn-success" type="submit">Edit product</button>
+    </form>
+  </div>
 </div>
