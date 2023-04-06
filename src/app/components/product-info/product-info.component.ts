@@ -63,15 +63,10 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
       quantity,
     }));
   }
-  deleteCart() {
-    let id = this.id as string;
-        this.cartService.deleteItem(this.id);
-   this.getCartItemCount();
-        // this.router.navigate(['/checkout']);
-        // this.router.navigate(['/']);
-
-
-  }
+deleteCart() {
+  this.cartService.deleteItem(this.id);
+  this.calculateCartItems();
+}
   getItemQuantity(product: Product): number {
     let count = 0;
     this.items.forEach((item: { id: string | undefined }) => {
