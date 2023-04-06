@@ -65,13 +65,12 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   }
   deleteCart() {
     let id = this.id as string;
-    if (confirm('Are you sure?')) {
-      if (id) {
         this.cartService.deleteItem(this.id);
+   this.getCartItemCount();
         // this.router.navigate(['/checkout']);
-        this.router.navigate(['/']);
-      }
-    }
+        // this.router.navigate(['/']);
+
+
   }
   getItemQuantity(product: Product): number {
     let count = 0;
@@ -81,5 +80,8 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
       }
     });
     return count;
+  }
+  getCartItemCount(): number {
+    return this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
 }
