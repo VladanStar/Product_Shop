@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/servis.service';
 import { CurrencyPipe } from '@angular/common';
-
+import * as Papa from 'papaparse';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -57,5 +57,17 @@ export class ProductListComponent implements OnInit {
     });
     // flip sort direction
     this.sortDirectionPrice = -this.sortDirectionPrice;
+  }
+  exportToCsv() {
+    const csv = Papa.unparse(this.products);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'books.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }
