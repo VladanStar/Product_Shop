@@ -63,7 +63,7 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(product);
     this.calculateCartItems();
     this.calculateTotalPrice();
-this.exportToCsv();
+
 
   }
   onDelete(product: Product): void {
@@ -105,18 +105,7 @@ this.clearTable();
 this.totalPrice=0;
 
   }
-  exportToCsv() {
-    const csv = Papa.unparse(this.cartItems);
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    const url = URL.createObjectURL(blob);
-    link.setAttribute('href', url);
-    link.setAttribute('download', 'books.csv');
-    link.style.visibility = 'hidden';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
+
   public get name() {
     return this.checkoutForm.get('name');
   }
