@@ -18,6 +18,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { LoginComponent } from './login/login/login.component';
+import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     AddProductComponent,
     NotFoundComponent,
     EditProductComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

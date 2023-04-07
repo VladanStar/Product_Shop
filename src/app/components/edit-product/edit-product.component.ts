@@ -38,7 +38,7 @@ export class EditProductComponent implements OnInit {
     let id = this.id as string;
     this.productService.update(id, f.value);
     window.alert('Phone is Edited');
-    this.router.navigate(['/']);
+    this.router.navigate(['/main']);
     // f.reset();
   }
 }

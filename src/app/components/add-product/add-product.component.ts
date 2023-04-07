@@ -16,6 +16,6 @@ export class AddProductComponent implements OnInit {
     this.productService.add(f.value);
 
     window.alert('Product added');
-    this.router.navigate(['/']);
+    this.router.navigate(['/main']);
   }
 }
