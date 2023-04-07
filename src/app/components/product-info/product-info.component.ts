@@ -45,9 +45,9 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
     // });
   }
   ngOnDestroy(): void {
-    // if (this.subscription != null) {
-    //   this.subscription.unsubscribe();
-    // }
+    if (this.subscription != null) {
+      this.subscription.unsubscribe();
+    }
   }
   addToCart() {
     this.cartService.addToCart(this.product);
