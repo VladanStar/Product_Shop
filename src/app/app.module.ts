@@ -19,6 +19,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { RegisterComponent } from './login/register/register.component';
     EditProductComponent,
     LoginComponent,
     RegisterComponent,
+    VerifyEmailComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
