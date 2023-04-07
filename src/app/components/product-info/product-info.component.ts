@@ -29,7 +29,7 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
     private router: Router,
 public auth:AuthService
   ) {
-    this.auth.updateLoginStatus(false);
+    // this.auth.updateLoginStatus(false);
   }
 
 

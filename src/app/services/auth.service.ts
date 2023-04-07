@@ -11,11 +11,11 @@ export class AuthService implements OnInit {
 
   constructor(private fireauth: AngularFireAuth, private router: Router) {}
 
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean =false;
 
-  updateLoginStatus(status: boolean) {
+  updateLoginStatus(status: boolean): void {
     this.isLoggedIn = status;
-  }
+    }
   ngOnInit(): void {}
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(

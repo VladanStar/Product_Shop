@@ -32,15 +32,17 @@ export class ProductListComponent implements OnInit {
     private router: Router,
     private auth: AuthService
   ) {
+    // this.auth.updateLoginStatus(false);
 
-     this.auth.updateLoginStatus(false);
   }
   sortDirection = 1;
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((products) => {
       this.products = products;
+
     });
+     this.auth.updateLoginStatus(true);
   }
 
   sortName(): void {

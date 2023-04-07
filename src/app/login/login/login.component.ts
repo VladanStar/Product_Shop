@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.auth.login(this.email, this.password);
-
+    this.auth.updateLoginStatus(false);
     this.email = '';
     this.password = '';
   }

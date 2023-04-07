@@ -15,22 +15,36 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="main">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="main"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
-          <a   *ngIf="!auth.isLoggedIn"  class="nav-link" routerLink="product/add">Add Product</a>
+          <a *ngIf="auth.isLoggedIn" class="nav-link" routerLink="product/add"
+            >Add Product</a
+          >
         </li>
         <li>
-          <a  type="button" class="nav-link active" aria-current="page" (click)="register()" >Logout </a>
+          <a
+            type="button"
+            class="nav-link active"
+            aria-current="page"
+            (click)="register()"
+            >Logout
+          </a>
         </li>
       </ul>
       <ul class="ms-auto mx-5">
-        <li class="nav-item ml-auto"   *ngIf="!auth.isLoggedIn" >
+        <li class="nav-item ml-auto" *ngIf="auth.isLoggedIn">
           <a class="nav-link ms-auto" routerLink="/checkout"
-            >Cart <i class="bi bi-cart-check"><span class="badge"><sub>{{ cartItemCount }}</sub></span></i
-          ></a>
+            >Cart
+            <i class="bi bi-cart-check"
+              ><span class="badge"
+                ><sub>{{ cartItemCount }}</sub></span
+              ></i
+            ></a
+          >
         </li>
-
       </ul>
     </div>
   </div>
