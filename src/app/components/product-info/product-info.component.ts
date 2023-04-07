@@ -19,32 +19,43 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   items: any;
   totalQuantity: number =0;
+
+
   constructor(
     private productService: ProductService,
     private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
+
+
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
-      this.subscription = this.productService.get(this.id).subscribe((p) => {
+       this.productService.get(this.id).subscribe((p) => {
         this.product = p;
         console.log(this.product);
       });
     }
     this.calculateCartItems();
+
+    // this.productService.get(this.id).subscribe(p => {
+    //   this.product = p;
+    //   console.log(this.product);
+    // });
   }
   ngOnDestroy(): void {
-    if (this.subscription != null) {
-      this.subscription.unsubscribe();
-    }
+    // if (this.subscription != null) {
+    //   this.subscription.unsubscribe();
+    // }
   }
   addToCart() {
     this.cartService.addToCart(this.product);
     console.log(this.product);
     this.calculateCartItems();
   }
+
+
 
   private calculateCartItems(): void {
     const items = this.cartService.getItems();

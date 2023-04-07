@@ -34,7 +34,7 @@ export class ProductService {
       );
   }
   update(productId: string, Product: Product): void {
-    this.db.object<Product>('/products/' + productId).update(Product);
+    this.db.object<Product>('products/' + productId).update(Product);
   }
   add(product: Product) {
     this.db.list('/products').push(product);
