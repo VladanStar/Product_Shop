@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,11 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent  implements OnInit{
-constructor(private cartService:CartService){}
+constructor(private cartService:CartService,
+  public auth: AuthService){
+
+    this.auth.updateLoginStatus(false);
+  }
 
 cartItemCount: number =0;
 
@@ -17,6 +22,8 @@ ngOnInit() {
   })
 
 }
-
+register() {
+  this.auth.logout();
+}
 
 }
