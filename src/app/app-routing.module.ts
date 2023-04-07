@@ -8,11 +8,15 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"login", component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  {path: 'verify-email', component : VerifyEmailComponent},
+  {path: 'forgot-password', component : ForgotPasswordComponent},
   { path: 'main', component: ProductListComponent },
   { path: 'checkout', component: CartComponent },
   { path: 'product/add', component: AddProductComponent },
