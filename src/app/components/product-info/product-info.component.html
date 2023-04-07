@@ -17,7 +17,7 @@
           <a
             routerLink="/product/edit/{{ product.id }}"
             class="btn btn-dark delete-button"
-            ><i class="bi bi-pen-fill"></i
+            ><i  *ngIf="!auth.isLoggedIn" class="bi bi-pen-fill"></i
           ></a>
         </div>
         <div class="card-footer text-center">

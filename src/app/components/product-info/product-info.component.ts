@@ -6,6 +6,7 @@ import { ProductService } from 'src/app/services/servis.service';
 import { CurrencyPipe } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-product-info',
@@ -25,8 +26,11 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
     private productService: ProductService,
     private cartService: CartService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+public auth:AuthService
+  ) {
+    this.auth.updateLoginStatus(false);
+  }
 
 
   ngOnInit(): void {

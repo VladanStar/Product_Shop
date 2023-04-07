@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/servis.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -21,8 +22,11 @@ export class EditProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+private auth:AuthService
+  ) {
+    this.auth.updateLoginStatus(false);
+  }
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {

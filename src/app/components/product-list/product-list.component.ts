@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/servis.service';
 import { CurrencyPipe } from '@angular/common';
@@ -28,8 +29,12 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+    private auth: AuthService
+  ) {
+
+     this.auth.updateLoginStatus(false);
+  }
   sortDirection = 1;
 
   ngOnInit(): void {
