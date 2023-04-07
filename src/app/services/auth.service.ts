@@ -14,8 +14,9 @@ export class AuthService implements OnInit {
   isLoggedIn: boolean =true;
 
   updateLoginStatus(status: boolean): void {
-    this.isLoggedIn = true;
+    this.isLoggedIn = false;
     }
+    
   ngOnInit(): void {}
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(

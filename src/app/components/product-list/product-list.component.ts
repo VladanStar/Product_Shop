@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
     private auth: AuthService
   ) {
 
-
+   
   }
   sortDirection = 1;
 
@@ -42,6 +42,7 @@ export class ProductListComponent implements OnInit {
       this.products = products;
 
     });
+
 
   }
 
