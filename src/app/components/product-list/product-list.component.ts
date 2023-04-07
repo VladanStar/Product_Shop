@@ -32,7 +32,7 @@ export class ProductListComponent implements OnInit {
     private router: Router,
     private auth: AuthService
   ) {
-    // this.auth.updateLoginStatus(false);
+    this.auth.updateLoginStatus(false);
 
   }
   sortDirection = 1;
@@ -42,7 +42,7 @@ export class ProductListComponent implements OnInit {
       this.products = products;
 
     });
-     this.auth.updateLoginStatus(true);
+    //  this.auth.updateLoginStatus(true);
   }
 
   sortName(): void {
