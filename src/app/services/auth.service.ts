@@ -68,10 +68,35 @@ export class AuthService implements OnInit {
   forgotPassword(email: string) {
     this.fireauth.sendPasswordResetEmail(email).then(
       () => {
-this.router.navigate(['/verify-email'])
+        this.router.navigate(['/verify-email']);
       },
       (err) => {
-window.alert('Something Went Wrong')
+        window.alert('Something Went Wrong');
+      }
+    );
+  }
+  // email varification
+  sendEmailForVarification(user: any) {
+    console.log(user);
+    user.sendEmailVerification().then(
+      (res: any) => {
+        this.router.navigate(['/verify-email']);
+      },
+      (err: any) => {
+        alert('Something went wrong. Not able to send mail to your email.');
+      }
+    );
+  }
+
+  //sign in with google
+  googleSignIn() {
+    return this.fireauth.signInWithPopup(new GoogleAuthProvider()).then(
+      (res) => {
+        this.router.navigate(['/main']);
+        localStorage.setItem('token', JSON.stringify(res.user?.uid));
+      },
+      (err) => {
+        alert(err.message);
       }
     );
   }
