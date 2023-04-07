@@ -20,7 +20,7 @@
           >
         </li>
         <li class="nav-item">
-          <a *ngIf="auth.isLoggedIn" class="nav-link" routerLink="product/add"
+          <a *ngIf="!auth.isLoggedIn" class="nav-link" routerLink="product/add"
             >Add Product</a
           >
         </li>
@@ -35,7 +35,7 @@
         </li>
       </ul>
       <ul class="ms-auto mx-5">
-        <li class="nav-item ml-auto" *ngIf="auth.isLoggedIn">
+        <li class="nav-item ml-auto" *ngIf="!auth.isLoggedIn">
           <a class="nav-link ms-auto" routerLink="/checkout"
             >Cart
             <i class="bi bi-cart-check"

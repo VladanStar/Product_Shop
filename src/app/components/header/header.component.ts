@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent  implements OnInit{
 constructor(private cartService:CartService,
   public auth: AuthService){
-this.auth.updateLoginStatus(false)
+
   }
 
 cartItemCount: number =0;
@@ -19,7 +19,7 @@ ngOnInit() {
   this.cartService.getCartItemCount().subscribe((count) => {
     this.cartItemCount = count;
   })
-
+  this.auth.updateLoginStatus(false)
 }
 register() {
   this.auth.logout();

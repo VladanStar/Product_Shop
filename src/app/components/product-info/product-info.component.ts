@@ -34,6 +34,7 @@ public auth:AuthService
 
 
   ngOnInit(): void {
+    this.auth.updateLoginStatus(true);
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
        this.productService.get(this.id).subscribe((p) => {
