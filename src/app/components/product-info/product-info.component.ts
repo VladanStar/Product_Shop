@@ -29,7 +29,7 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
     private router: Router,
 public auth:AuthService
   ) {
-    // this.auth.updateLoginStatus(false);
+ //  this.auth.updateLoginStatus(true);
   }
 
 
@@ -42,11 +42,7 @@ public auth:AuthService
       });
     }
     this.calculateCartItems();
-
-    // this.productService.get(this.id).subscribe(p => {
-    //   this.product = p;
-    //   console.log(this.product);
-    // });
+   this.auth.updateLoginStatus(false);
   }
   ngOnDestroy(): void {
     if (this.subscription != null) {

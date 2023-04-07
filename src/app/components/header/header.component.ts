@@ -11,7 +11,6 @@ export class HeaderComponent  implements OnInit{
 constructor(private cartService:CartService,
   public auth: AuthService){
 
-    this.auth.updateLoginStatus(false);
   }
 
 cartItemCount: number =0;

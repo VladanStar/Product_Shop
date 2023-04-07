@@ -11,10 +11,10 @@ export class AuthService implements OnInit {
 
   constructor(private fireauth: AngularFireAuth, private router: Router) {}
 
-  isLoggedIn: boolean =false;
+  isLoggedIn: boolean =true;
 
   updateLoginStatus(status: boolean): void {
-    this.isLoggedIn = status;
+    this.isLoggedIn = true;
     }
   ngOnInit(): void {}
   login(email: string, password: string) {
@@ -53,6 +53,7 @@ export class AuthService implements OnInit {
     this.fireauth.signOut().then(
       () => {
         localStorage.removeItem('token');
+
         this.router.navigate(['/login']);
       },
       (err) => {
