@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import { VerifyEmailComponent } from './login/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
     RegisterComponent,
     VerifyEmailComponent,
     ForgotPasswordComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
