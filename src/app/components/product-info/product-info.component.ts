@@ -29,12 +29,12 @@ export class ProductInfoComponent implements OnInit, OnDestroy {
     private router: Router,
 public auth:AuthService
   ) {
- //  this.auth.updateLoginStatus(true);
+
   }
 
 
   ngOnInit(): void {
-    this.auth.updateLoginStatus(true);
+
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
        this.productService.get(this.id).subscribe((p) => {
@@ -43,7 +43,7 @@ public auth:AuthService
       });
     }
     this.calculateCartItems();
-   this.auth.updateLoginStatus(false);
+
   }
   ngOnDestroy(): void {
     if (this.subscription != null) {

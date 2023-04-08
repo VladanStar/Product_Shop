@@ -19,7 +19,7 @@ ngOnInit() {
   this.cartService.getCartItemCount().subscribe((count) => {
     this.cartItemCount = count;
   })
-  this.auth.updateLoginStatus(false)
+
 }
 register() {
   this.auth.logout();

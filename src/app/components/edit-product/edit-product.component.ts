@@ -25,7 +25,7 @@ export class EditProductComponent implements OnInit {
     private router: Router,
 private auth:AuthService
   ) {
-    this.auth.updateLoginStatus(false);
+
   }
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');

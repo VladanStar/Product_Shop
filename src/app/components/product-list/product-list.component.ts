@@ -30,10 +30,10 @@ export class ProductListComponent implements OnInit {
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    private auth: AuthService
+    public auth: AuthService
   ) {
 
-   
+
   }
   sortDirection = 1;
 

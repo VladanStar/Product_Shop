@@ -14,13 +14,16 @@
               Price: {{ product.price | currency : "USD" : "symbol" : "1.2-2" }}
             </li>
           </ul>
-          <a  *ngIf="!auth.isLoggedIn"
+          <a
+          *ngIf="!auth.isLoggedIn"
             routerLink="/product/edit/{{ product.id }}"
             class="btn btn-dark delete-button"
             ><i  class="bi bi-pen-fill"></i
           ></a>
         </div>
-        <div class="card-footer text-center">
+        <div
+        *ngIf="!auth.isLoggedIn"
+        class="card-footer text-center">
           <div class="btn-group">
             <button class="btn btn-success" (click)="addToCart()">
               Add to Cart<i class="bi bi-cart-check"></i>
