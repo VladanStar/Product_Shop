@@ -6,13 +6,15 @@
   border-radius: 50%;
   /* apply any additional styles */
 }
+.container{
+  height: 100vh;
+  }
 .item {
   background-color: antiquewhite;
-padding: 5px;
-margin: 5px;
+  padding: 5px;
+  margin: 5px;
   border: 2px solid blue;
   text-align: center;
- 
 }
 .card {
   position: relative;

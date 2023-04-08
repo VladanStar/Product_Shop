@@ -8,7 +8,9 @@
 ul {
   list-style: none;
 }
-
+.container{
+height: 100vh;
+}
 .price {
   color: white !important;
   font-weight: bold;
