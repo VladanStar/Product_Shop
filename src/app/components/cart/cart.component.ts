@@ -34,6 +34,7 @@ export class CartComponent implements OnInit {
 
   totalPrice: any;
   totalP: any = 0;
+totalPR:any=0;
   ngOnInit(): void {
     this.calculateCartItems();
     this.calculateTotalPrice();
@@ -111,5 +112,14 @@ export class CartComponent implements OnInit {
 
   public get email() {
     return this.checkoutForm.get('email');
+  }
+
+  calculatePrice(index: number): void {
+    let total = 0;
+    const item = this.cartItems[index];
+    if (item.product && item.product.price) {
+      total = item.product.price * item.quantity;
+    }
+    this.totalPR = total;
   }
 }
