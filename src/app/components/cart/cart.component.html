@@ -3,22 +3,6 @@
     <h1 class="text-center">Checkout</h1>
     <hr />
 
-    <!-- <div>
-      <div>
-        <div *ngFor="let item of cartItems">
-        <span>  {{ item.product.name }}</span>
-
-          <a (click)="onDelete(item.product)"
-            ><i class="bi bi-file-minus"></i
-          ></a>
-          <span> {{ item.quantity }}</span>
-          <a (click)="onAddToCart(item.product)"
-            ><i class="bi bi-file-plus"></i
-          ></a>
-        </div>
-      </div>
-      <p>Total price: {{ totalPrice }}</p>
-    </div> -->
     <div *ngIf="cartItems.length > 0; else noItems">
       <p class="text-center">Your current Cart includes these items:</p>
     </div>
@@ -26,11 +10,11 @@
       <thead class="table-info">
         <tr>
           <th>Name</th>
-          <th>Cena po komadu</th>
-          <th>Izbaci iz korpe</th>
-          <th>kolicina</th>
-          <th>Ubaci u korpu</th>
-          <th>Cena</th>
+          <th>Price per piece</th>
+          <th>Remove</th>
+          <th>Quantity</th>
+          <th>Add to cart </th>
+          <th>Price</th>
         </tr>
       </thead>
       <tbody>
@@ -53,7 +37,7 @@
 <td>
   {{ calculatePrice(i) }}{{totalPR}}
 </td>
-          <td>{{ totalP }}</td>
+
         </tr>
       </tbody>
     </table>
