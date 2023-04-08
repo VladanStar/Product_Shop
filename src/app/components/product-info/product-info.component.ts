@@ -59,7 +59,7 @@ public auth:AuthService
 
 
   private calculateCartItems(): void {
-    const items = this.cartService.getItems();
+    const items = this.cartService.getItems().filter(item => item.id === this.id);
     const map = new Map<Product, number>();
 
     for (const item of items) {
@@ -76,7 +76,9 @@ public auth:AuthService
     }));
   }
 deleteCart() {
+  this.cartItems = this.cartItems.filter(item => item.product.id !== this.id);
   this.cartService.deleteItem(this.id);
+
   this.calculateCartItems();
 
 }
