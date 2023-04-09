@@ -1,8 +1,8 @@
 .card {
-  width: 300px; /* prilagodite veličinu kartice prema potrebi */
+  width: 500px; /* prilagodite veličinu kartice prema potrebi */
   margin-right: 20px; /* ili drugačije prilagodite razmak između kartica */
-
 }
+
 .tocsv {
   background-color: firebrick;
 }

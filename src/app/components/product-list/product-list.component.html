@@ -1,5 +1,5 @@
 <div class="container" #myFunction>
-  <h1 class="text-center">Phone</h1>
+  <h1 class="text-center">Phon</h1>
   <div>
     <input
       [(ngModel)]="searchText"
@@ -24,7 +24,7 @@
       let product of products
         | filter : searchText
         | paginate
-          : { itemsPerPage: 10, currentPage: page, totalItems: totalLength };
+          : { itemsPerPage: 7, currentPage: page, totalItems: totalLength };
       let i = index
     "
   >
