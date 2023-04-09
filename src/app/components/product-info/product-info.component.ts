@@ -74,12 +74,13 @@ public auth:AuthService
       product,
       quantity,
     }));
+
   }
 deleteCart() {
   this.cartItems = this.cartItems.filter(item => item.product.id !== this.id);
   this.cartService.deleteItem(this.id);
-
   this.calculateCartItems();
+  this.cartService.updateCartItemCount();
 
  }
   getItemQuantity(product: Product): number {
@@ -97,6 +98,7 @@ deleteCart() {
   deletePhone(id: any) {
     if (confirm('Are you sure you want to delete this card?')) {
       this.productService.delete(id);
+      this.cartService.updateCartItemCount();
     }
   }
 }
