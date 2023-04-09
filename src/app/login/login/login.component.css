@@ -6,3 +6,6 @@ img{
   height:24px;
    width:24px;
 }
+.container-fluid{
+height: 100vh;
+}
