@@ -81,7 +81,7 @@ deleteCart() {
 
   this.calculateCartItems();
 
-}
+ }
   getItemQuantity(product: Product): number {
     let count = 0;
     this.items.forEach((item: { id: string | undefined }) => {
@@ -94,8 +94,8 @@ deleteCart() {
   getCartItemCount(): number {
     return this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
-  deleteCard(id: any) {
-    if (confirm('Are you sure you want to delete this player?')) {
+  deletePhone(id: any) {
+    if (confirm('Are you sure you want to delete this card?')) {
       this.productService.delete(id);
     }
   }

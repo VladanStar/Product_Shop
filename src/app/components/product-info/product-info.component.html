@@ -5,7 +5,7 @@
         <a routerLink="/main" class="btn btn-sm btn-secondary mb-3 back">Back</a>
         <h3 class="card-header">{{ product.name }}</h3>
 
-        <div class="card-body">
+        <div class="card-body" >
           <ul class="list-group">
             <li class="list-group-item">Ime: {{ product.name }}</li>
             <li class="list-group-item">ID: {{ product.productId }}</li>
@@ -19,9 +19,10 @@
             routerLink="/product/edit/{{ product.id }}"
             class="btn btn-dark delete-button"
             ><i  class="bi bi-pen-fill"></i
-          ></a>  <a
+          ></a>
+          <a
           *ngIf="!auth.isLoggedIn"
-          (click)="deleteCard(product.productId)"
+          (click)="deletePhone(product.id)"
             class="btn btn-dark delete"
             ><i class="bi bi-file-earmark-x-fill"></i></a>
         </div>
