@@ -2,10 +2,12 @@
   <div class="row">
     <div class="col-4">
       <div class="card bg-warning" *ngIf="product">
-        <a routerLink="/main" class="btn btn-sm btn-secondary mb-3 back">Back</a>
+        <a routerLink="/main" class="btn btn-sm btn-secondary mb-3 back"
+          >Back</a
+        >
         <h3 class="card-header">{{ product.name }}</h3>
 
-        <div class="card-body" >
+        <div class="card-body">
           <ul class="list-group">
             <li class="list-group-item">Ime: {{ product.name }}</li>
             <li class="list-group-item">ID: {{ product.productId }}</li>
@@ -15,27 +17,26 @@
             </li>
           </ul>
           <a
-          *ngIf="!auth.isLoggedIn"
+            *ngIf="!auth.isLoggedIn"
             routerLink="/product/edit/{{ product.id }}"
             class="btn btn-dark delete-button"
-            ><i  class="bi bi-pen-fill"></i
+            ><i class="bi bi-pen-fill"></i
           ></a>
           <a
-          *ngIf="!auth.isLoggedIn"
-          (click)="deletePhone(product.id)"
+            *ngIf="!auth.isLoggedIn"
+            (click)="deletePhone(product.id)"
             class="btn btn-dark delete"
-            ><i class="bi bi-file-earmark-x-fill"></i></a>
+            ><i class="bi bi-file-earmark-x-fill"></i
+          ></a>
         </div>
-        <div
-
-        class="card-footer text-center">
+        <div class="card-footer text-center">
           <div class="btn-group">
             <button class="btn btn-success" (click)="addToCart()">
               Add to Cart<i class="bi bi-cart-check"></i>
             </button>
 
             <div class="box">
-               <p  class="item"> {{ getCartItemCount() }}</p>
+              <p class="item">{{ getCartItemCount() }}</p>
             </div>
             <button class="btn btn-danger" (click)="deleteCart()">
               Delete Item<i class="bi bi-trash-fill"></i>
