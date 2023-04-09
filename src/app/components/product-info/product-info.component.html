@@ -1,56 +1,49 @@
 <div class="container my-5">
   <div class="row">
     <div class="card col-5 bg-warning" *ngIf="product">
+      <a routerLink="/main" class="btn btn-sm btn-secondary mb-3 back">Back</a>
+      <h3 class="card-header">{{ product.name }}</h3>
 
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">Ime: {{ product.name }}</li>
+          <li class="list-group-item">ID: {{ product.productId }}</li>
+          <li class="list-group-item">Descr: {{ product.descr }}</li>
+          <li class="list-group-item">
+            Price: {{ product.price | currency : "USD" : "symbol" : "1.2-2" }}
+          </li>
+        </ul>
+        <a
+          *ngIf="!auth.isLoggedIn"
+          routerLink="/product/edit/{{ product.id }}"
+          class="btn btn-dark delete-button"
+          ><i class="bi bi-pencil-square"></i
+        ></a>
+        <a
+          *ngIf="!auth.isLoggedIn"
+          (click)="deletePhone(product.id)"
+          class="btn btn-dark delete"
+          ><i class="bi bi-file-earmark-x-fill"></i
+        ></a>
+      </div>
+      <div class="card-footer text-center">
+        <div class="btn-group">
+          <button class="btn btn-success" (click)="addToCart()">
+            Add to Cart<i class="bi bi-cart-check"></i>
+          </button>
 
-        <a routerLink="/main" class="btn btn-sm btn-secondary mb-3 back"
-          >Back</a
-        >
-        <h3 class="card-header">{{ product.name }}</h3>
-
-        <div class="card-body">
-          <ul class="list-group">
-            <li class="list-group-item">Ime: {{ product.name }}</li>
-            <li class="list-group-item">ID: {{ product.productId }}</li>
-            <li class="list-group-item">Descr: {{ product.descr }}</li>
-            <li class="list-group-item">
-              Price: {{ product.price | currency : "USD" : "symbol" : "1.2-2" }}
-            </li>
-          </ul>
-          <a
-            *ngIf="!auth.isLoggedIn"
-            routerLink="/product/edit/{{ product.id }}"
-            class="btn btn-dark delete-button"
-            ><i class="bi bi-pencil-square"></i></a>
-          <a
-            *ngIf="!auth.isLoggedIn"
-            (click)="deletePhone(product.id)"
-            class="btn btn-dark delete"
-            ><i class="bi bi-file-earmark-x-fill"></i
-          ></a>
-        </div>
-        <div class="card-footer text-center">
-          <div class="btn-group">
-            <button class="btn btn-success" (click)="addToCart()">
-              Add to Cart<i class="bi bi-cart-check"></i>
-            </button>
-
-            <div class="box">
-              <p class="item">{{ getCartItemCount() }}</p>
-            </div>
-            <button class="btn btn-danger" (click)="deleteCart()">
-              Delete Item<i class="bi bi-trash-fill"></i>
-            </button>
+          <div class="box">
+            <p class="item">{{ getCartItemCount() }}</p>
           </div>
+          <button class="btn btn-danger" (click)="deleteCart()">
+            Delete Item<i class="bi bi-trash-fill"></i>
+          </button>
         </div>
-
-
+      </div>
     </div>
 
-      <div class="col-7">
-        <img src="{{product.img}}" alt="Phone pics">
-        </div>
-
+    <div class="col-7">
+      <img src="{{ product.img }}" alt="Phone pics" />
+    </div>
   </div>
-
 </div>

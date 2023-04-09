@@ -6,18 +6,17 @@
   border-radius: 5%;
   /* apply any additional styles */
 }
-.row{
-display: flex;
-flex-wrap: nowrap;
-justify-content: center;
-align-items: center;
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
-img{
-width: 400px !important;
-height: 600px !important;
-margin-left: 150px;
-border-radius: 20%;
-
+img {
+  width: 400px !important;
+  height: 600px !important;
+  margin-left: 150px;
+  border-radius: 20%;
 }
 .delete {
   position: absolute;
