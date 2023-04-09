@@ -2,20 +2,33 @@
   position: absolute;
   width: 10%;
   top: 0;
-  right: 40px;
-  border-radius: 50%;
+  right: 50px;
+  border-radius: 5%;
   /* apply any additional styles */
 }
-.delete{
+.row{
+display: flex;
+flex-wrap: nowrap;
+justify-content: center;
+align-items: center;
+}
+img{
+width: 400px !important;
+height: 600px !important;
+margin-left: 150px;
+border-radius: 20%;
+
+}
+.delete {
   position: absolute;
   width: 10%;
   top: 0;
   right: 0px;
-background-color: firebrick !important;
+  background-color: firebrick !important;
 }
-.container{
+.container {
   height: 100vh;
-  }
+}
 .item {
   background-color: antiquewhite;
   padding: 5px;

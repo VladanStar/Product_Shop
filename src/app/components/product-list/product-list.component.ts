@@ -13,7 +13,6 @@ import * as Papa from 'papaparse';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-
   id: any;
   showDeletedMessage: boolean = true;
   searchText: any;
@@ -31,19 +30,13 @@ export class ProductListComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public auth: AuthService
-  ) {
-
-
-  }
+  ) {}
   sortDirection = 1;
 
   ngOnInit(): void {
     this.productService.getAll().subscribe((products) => {
       this.products = products;
-
     });
-
-
   }
 
   sortName(): void {
@@ -82,9 +75,4 @@ export class ProductListComponent implements OnInit {
     link.click();
     document.body.removeChild(link);
   }
-
-
-
-
-
 }

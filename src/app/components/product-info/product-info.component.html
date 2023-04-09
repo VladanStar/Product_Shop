@@ -1,7 +1,8 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-4">
-      <div class="card bg-warning" *ngIf="product">
+    <div class="card col-5 bg-warning" *ngIf="product">
+
+
         <a routerLink="/main" class="btn btn-sm btn-secondary mb-3 back"
           >Back</a
         >
@@ -20,8 +21,7 @@
             *ngIf="!auth.isLoggedIn"
             routerLink="/product/edit/{{ product.id }}"
             class="btn btn-dark delete-button"
-            ><i class="bi bi-pen-fill"></i
-          ></a>
+            ><i class="bi bi-pencil-square"></i></a>
           <a
             *ngIf="!auth.isLoggedIn"
             (click)="deletePhone(product.id)"
@@ -43,7 +43,14 @@
             </button>
           </div>
         </div>
-      </div>
+
+
     </div>
+
+      <div class="col-7">
+        <img src="{{product.img}}" alt="Phone pics">
+        </div>
+
   </div>
+
 </div>
