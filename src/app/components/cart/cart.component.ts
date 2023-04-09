@@ -38,6 +38,7 @@ totalPR:any=0;
   ngOnInit(): void {
     this.calculateCartItems();
     this.calculateTotalPrice();
+
   }
 
   private calculateCartItems(): void {
@@ -100,6 +101,8 @@ totalPR:any=0;
     window.alert('the purchase order has been sent');
     this.clearTable();
     this.totalPrice = 0;
+    this.cartService.updateCartItemCount();
+
   }
 
   public get name() {
@@ -121,5 +124,6 @@ totalPR:any=0;
       total = item.product.price * item.quantity;
     }
     this.totalPR = total;
+
   }
 }

@@ -47,4 +47,7 @@ export class CartService {
   getCartItemCount(): BehaviorSubject<number> {
     return this.cartItemCount;
   }
+  public updateCartItemCount() {
+    this.cartItemCount.next(0);
+  }
 }

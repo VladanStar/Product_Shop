@@ -94,4 +94,9 @@ deleteCart() {
   getCartItemCount(): number {
     return this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
+  deleteCard(id: any) {
+    if (confirm('Are you sure you want to delete this player?')) {
+      this.productService.delete(id);
+    }
+  }
 }

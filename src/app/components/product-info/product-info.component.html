@@ -19,7 +19,11 @@
             routerLink="/product/edit/{{ product.id }}"
             class="btn btn-dark delete-button"
             ><i  class="bi bi-pen-fill"></i
-          ></a>
+          ></a>  <a
+          *ngIf="!auth.isLoggedIn"
+          (click)="deleteCard(product.productId)"
+            class="btn btn-dark delete"
+            ><i class="bi bi-file-earmark-x-fill"></i></a>
         </div>
         <div
 
