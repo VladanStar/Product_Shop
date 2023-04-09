@@ -18,15 +18,14 @@ export class EditProductComponent implements OnInit {
     productId: '',
     descr: '',
     price: 0,
+    img: '',
   };
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-private auth:AuthService
-  ) {
-
-  }
+    private auth: AuthService
+  ) {}
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
