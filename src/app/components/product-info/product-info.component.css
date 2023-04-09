@@ -41,4 +41,6 @@ img {
 }
 .back {
   width: 20%;
+  left: 0;
+  top: 0;
 }
