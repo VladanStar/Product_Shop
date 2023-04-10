@@ -75,4 +75,14 @@ export class ProductListComponent implements OnInit {
     link.click();
     document.body.removeChild(link);
   }
+
+  showProducts(name: string): void {
+    this.productService.getAll().subscribe(products => {
+      this.products = products.filter((product: Product) => {
+        return product.name && product.name.toLowerCase().includes(name.toLowerCase());
+
+      });
+    });
+  }
+
 }

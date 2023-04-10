@@ -1,5 +1,13 @@
 <div class="container" #myFunction>
   <h1 class="text-center">Phone</h1>
+<div>
+  <button  class="btn btn-warning mx-1" (click)="showProducts('')">All product </button>
+  <button  class="btn btn-warning mx-1" (click)="showProducts('Nokia')">Nokia </button>
+  <button  class="btn btn-warning mx-1" (click)="showProducts('Apple')">Apple </button>
+  <button  class="btn btn-warning mx-1" (click)="showProducts('Samsung')">Samsung </button>
+  <button  class="btn btn-warning mx-1" (click)="showProducts('Sony')">Sony Ericson </button>
+</div>
+
   <div>
     <input
       [(ngModel)]="searchText"
