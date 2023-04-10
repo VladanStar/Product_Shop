@@ -102,6 +102,7 @@ totalPR:any=0;
     this.clearTable();
     this.totalPrice = 0;
     this.cartService.updateCartItemCount();
+this.onClearCart()
 
   }
 
