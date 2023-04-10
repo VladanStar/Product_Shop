@@ -12,7 +12,7 @@ import { VerifyEmailComponent } from './login/verify-email/verify-email.componen
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 
 const routes: Routes = [
-  {path:"", redirectTo:"login", pathMatch:"full"},
+  {path:"", redirectTo:"main", pathMatch:"full"},
   {path:"login", component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path: 'verify-email', component : VerifyEmailComponent},
