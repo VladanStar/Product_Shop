@@ -35,14 +35,14 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item bg-info">Name: {{ product.name }}</li>
         <li class="list-group-item bg-info">
-         Short descr: {{ product.productId }}
+          Short descr: {{ product.productId }}
         </li>
         <li class="list-group-item bg-info">
           Price: {{ product.price | currency : "USD" : "symbol" : "1.2-2" }}
         </li>
       </ul>
       <div class="card-footer bg-warning">
-        <a  class="btn btn-primary" routerLink="product/{{ product.id }}"
+        <a class="btn btn-primary" routerLink="product/{{ product.id }}"
           >Details</a
         >
       </div>
@@ -56,6 +56,3 @@
 <button type="button" class="btn btn-warning tocsv" (click)="exportToCsv()">
   Export to CSV
 </button>
-
-
-
